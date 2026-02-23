@@ -18,12 +18,12 @@ Vue.createApp({
         //   character counter can be tested.
         //
         // Example structure:
-        //
-        // this.stickies = [
-        //   { id: 1, text: "Test note 1" },
-        //   { id: 2, text: "Another note" }
-        // ];
-        //
+
+        this.stickies = [
+          { id: 1, text: "Test note 1" },
+          { id: 2, text: "Another note" }
+        ];
+
         // In Commit 3:
         // - REMOVE these hard-coded notes.
         // - DO NOT keep them in the final version.
