@@ -1,0 +1,20 @@
+Prompt: 
+
+How can I check whether crypt.randomUUID() is available in js? Don't give a function, just explain
+
+
+
+Response:
+
+How to check if crypto.randomUUID() is available
+You check for two things:
+That crypto exists
+That crypto.randomUUID exists and is a function
+In JavaScript, you do that by checking its type:
+typeof crypto !== "undefined"
+This ensures the crypto object exists.
+Then:
+typeof crypto.randomUUID === "function"
+
+___
+

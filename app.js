@@ -19,10 +19,10 @@ Vue.createApp({
         //
         // Example structure:
 
-        this.stickies = [
-          { id: 1, text: "Test note 1" },
-          { id: 2, text: "Another note" }
-        ];
+        // this.stickies = [
+        //   { id: 1, text: "Test note 1" },
+        //   { id: 2, text: "Another note" }
+        // ];
 
         // In Commit 3:
         // - REMOVE these hard-coded notes.
@@ -48,6 +48,11 @@ Vue.createApp({
             // For id:
             // - Use crypto.randomUUID() if available
             // - Otherwise use a fallback (Date.now() + Math.random())
+
+            this.stickies.push({
+                id: (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") ? crypto.randomUUID() : Date.now() + Math.random(), 
+                text: ""
+            });
         },
 
         deleteStickie(id) {
@@ -56,6 +61,8 @@ Vue.createApp({
             //
             // Use Array.filter()
             // Reassign the result back to this.stickies
+
+            this.stickies = this.stickies.filter(sticky => sticky.id != id);
         },
 
         // ================================
