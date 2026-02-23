@@ -30,6 +30,8 @@ Vue.createApp({
         //
         // In Commit 4:
         // - Replace this with a call to loadFromStorage().
+
+        this.stickies = loadFromStorage();
     },
 
     methods: {
@@ -97,6 +99,8 @@ Vue.createApp({
             //
             // Must use:
             // JSON.stringify(...)
+
+            localStorage.setItem("sticky-notes-simple", JSON.stringify(this.stickies));
         },
 
         loadFromStorage() {
@@ -110,6 +114,14 @@ Vue.createApp({
             // In Commit 4:
             // - Call this method from mounted().
             // - Remove hard-coded notes from Commit 2.
+
+            const notes = localStorage.loadFromStorage(JSON.parse("sticky-notes-simple"));
+
+            if (notes) {
+                return notes;
+            } else {
+                return [];
+            };
         }
     },
 
@@ -119,6 +131,8 @@ Vue.createApp({
                 // TODO (Commit 4):
                 // Call this.saveToStorage() here so edits
                 // auto-save without clicking any button.
+
+                this.saveToStorage();
             },
             deep: true
         }
