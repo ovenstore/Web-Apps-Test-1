@@ -77,6 +77,11 @@ Vue.createApp({
             // 2. If confirmed:
             //    - Clear the stickies array
             //    - Remove the localStorage item using this.storageKey
+
+            if (confirm("Clear all notes?")) {
+                localStorage.clear();
+                location.reload();
+            };
         },
 
         // ================================
